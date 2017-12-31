@@ -8,7 +8,7 @@ import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.OnlineStatus;
 import net.dv8tion.jda.core.exceptions.RateLimitedException;
-import util.Secrets;
+import util.Statics;
 
 public class Main {
 	
@@ -18,7 +18,7 @@ public class Main {
 
         builder = new JDABuilder(AccountType.BOT);
 
-        builder.setToken(Secrets.token);
+        builder.setToken(Statics.token);
         builder.setAutoReconnect(true);
 
         builder.setStatus(OnlineStatus.IDLE);
