@@ -1,6 +1,5 @@
 package listeners;
 
-import net.dv8tion.jda.core.entities.Emote;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
@@ -14,8 +13,8 @@ public class MessageEvent extends ListenerAdapter{
         if(message.equalsIgnoreCase("!dadi")) {
         	event.getTextChannel().sendMessage("Dadi ist **sehr** cool ;^)").queue();
         }
-        if(message.equalsIgnoreCase("-info")) {
-        	event.getTextChannel().sendMessage("Link: https://discordapp.com/api/oauth2/authorize?client_id=396990218751967254&permissions=8&scope=bot");
+        if(command.equalsIgnoreCase("info")) {
+        	event.getTextChannel().sendMessage("Link: https://discordapp.com/api/oauth2/authorize?client_id=396990218751967254&permissions=8&scope=bot").queue();
         }
     	
     }
