@@ -1,6 +1,7 @@
 package listeners;
 
 import commands.Help;
+import commands.Info;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
@@ -8,7 +9,10 @@ import net.dv8tion.jda.core.hooks.ListenerAdapter;
 public class MessageEvent extends ListenerAdapter{
 	
 	Help help = new Help();
-	EmbedBuilder emb = help.help();
+	Info info = new Info();
+	
+	EmbedBuilder emb_help = help.help();
+	EmbedBuilder emb_info = info.info();
 	
 	@Override
     public void onMessageReceived(MessageReceivedEvent event) {
@@ -23,7 +27,7 @@ public class MessageEvent extends ListenerAdapter{
         //info
         if(command.equalsIgnoreCase("info")) {
         	try {
-				event.getTextChannel().sendMessage("Link: https://discordapp.com/api/oauth2/authorize?client_id=396990218751967254&permissions=8&scope=bot").queue();
+        		event.getTextChannel().sendMessage(emb_info.build()).queue();
 			} catch (Exception e) {
 				//e.printStackTrace();
 			}
@@ -32,7 +36,7 @@ public class MessageEvent extends ListenerAdapter{
         //help
         if(command.equalsIgnoreCase("help")) {
         	try {
-				event.getTextChannel().sendMessage(emb.build()).queue();
+				event.getTextChannel().sendMessage(emb_help.build()).queue();
 			} catch (Exception e) {
 				//e.printStackTrace();
 			}
