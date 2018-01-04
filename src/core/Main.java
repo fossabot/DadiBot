@@ -2,6 +2,8 @@ package core;
 
 import javax.security.auth.login.LoginException;
 
+import listeners.JoinEvent;
+import listeners.LeaveEvent;
 import listeners.MessageEvent;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
@@ -9,7 +11,6 @@ import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.OnlineStatus;
 import net.dv8tion.jda.core.exceptions.RateLimitedException;
 import util.Secret;
-import util.Statics;
 
 public class Main {
 	
@@ -24,6 +25,8 @@ public class Main {
 
         builder.setStatus(OnlineStatus.IDLE);
         builder.addEventListener(new MessageEvent());
+        builder.addEventListener(new JoinEvent());
+        builder.addEventListener(new LeaveEvent());
 
         try {
             JDA jda = builder.buildBlocking();
