@@ -9,8 +9,10 @@ import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.OnlineStatus;
+import net.dv8tion.jda.core.entities.Game;
+import net.dv8tion.jda.core.entities.Game.GameType;
 import net.dv8tion.jda.core.exceptions.RateLimitedException;
-import util.Secret;
+import util.Statics;
 
 public class Main {
 	
@@ -20,16 +22,18 @@ public class Main {
 
         builder = new JDABuilder(AccountType.BOT);
 
-        builder.setToken(Secret.key);
+        builder.setToken(Statics.token);
         builder.setAutoReconnect(true);
+        builder.setStatus(OnlineStatus.ONLINE);
+        
+        builder.setGame(Game.of(GameType.WATCHING, "sich Witze"));
 
-        builder.setStatus(OnlineStatus.IDLE);
         builder.addEventListener(new MessageEvent());
         builder.addEventListener(new JoinEvent());
         builder.addEventListener(new LeaveEvent());
 
         try {
-            JDA jda = builder.buildBlocking();
+			JDA jda = builder.buildBlocking();
         } catch (LoginException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
