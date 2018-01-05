@@ -3,20 +3,24 @@ package commands;
 import java.awt.Color;
 
 import net.dv8tion.jda.core.EmbedBuilder;
+import net.dv8tion.jda.core.entities.Guild;
+import util.Prefix;
 
 public class Help {
 
-	public EmbedBuilder help() {
+	public EmbedBuilder help(Guild server) {
+		Prefix pr = new Prefix();
+		String prefix = pr.prefix(server);
+		
 		EmbedBuilder eb = new EmbedBuilder();
 		
-		eb.setColor(Color.GREEN);
+		eb.setColor(Color.decode("#3498DB"));
 		
-		eb.setTitle("DadiBot Commands");
-		eb.setDescription("by EweLoHD");
+		eb.setTitle("Help");
 		
-		eb.addField("-help", "List all the Commands", false);
-		eb.addField("-info", "Shows common informations", false);
-		eb.addField("!dadi", "Dadi ist sehr cool :^)", false);
+		eb.addField("▪ Commands", "Use `" + prefix + "modules` to see all the modules/categories of commands. \nTo see all the commands of a module use `" + prefix + "commands <module>`.", false);
+		eb.addBlankField(true);
+		eb.addField("▪ Other Informations", "To get informations about inviting the Bot,getting on my Discord, Wiki and more, use `" + prefix + "info`.", false);
 		
 		return eb;
 	}
