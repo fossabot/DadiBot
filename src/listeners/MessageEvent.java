@@ -1,5 +1,9 @@
 package listeners;
 
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.util.Properties;
+
 import commands.Help;
 import commands.Info;
 import commands.ModuleFun;
@@ -13,6 +17,9 @@ import net.dv8tion.jda.core.hooks.ListenerAdapter;
 import util.Statics;
 
 public class MessageEvent extends ListenerAdapter{
+	
+	Properties prop = new Properties();
+	OutputStream output = null;
 	
 	Statics statics = new Statics();
 	Help help = new Help();
@@ -66,6 +73,9 @@ public class MessageEvent extends ListenerAdapter{
         	try {
 				event.getMessage().addReaction("👍").queue();
 				event.getMessage().addReaction("👎").queue();
+				
+				output = new FileOutputStream("config.properties");
+
 			} catch (Exception e) {
 				//e.printStackTrace();
 			}
