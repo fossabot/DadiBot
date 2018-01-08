@@ -39,7 +39,7 @@ public class ReactionEvent extends ListenerAdapter{
 		if(e.getChannel().getName().equalsIgnoreCase("witze")) {
 
 				
-			if(e.getReactionEmote().getName().equals("👍")) {
+			//if(e.getReactionEmote().getName().equals("👍")) {
 					
 				RestAction<Message> m = e.getChannel().getMessageById(e.getMessageIdLong());
 				
@@ -55,25 +55,31 @@ public class ReactionEvent extends ListenerAdapter{
 		       		connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + e.getGuild().getId(),"root", Statics.pwd);
 		       		
 		       		s = connection.createStatement();
-		       		ResultSet rs = s.executeQuery("SELECT * FROM messages WHERE message='" + e.getMessageId() + "'");
-		       		while(rs.next()) {
-		       			System.out.println(rs.getString(1));
-		       			System.out.println(rs.getString(2));
-		       			System.out.println(e.getGuild().getMemberById(rs.getString(2)).getEffectiveName());
-		       		}
-/*		       		ResultSet rs2 = s.executeQuery("SELECT level FROM members WHERE member='" + "EweLoHD" + "'");
-		       		while(rs2.next()) {
-		       			int lvl = rs2.getInt(1) + 1;*/
-		       			s.executeUpdate("REPLACE INTO members SET member='EweLoHD', level=1");
-		       		//}
 		       		
+		       		if(e.getReactionEmote().getName().equals("👍")) {
+		       			ResultSet rs = s.executeQuery("SELECT * FROM messages WHERE message='" + e.getMessageId() + "'");
+		       			
+		       			while(rs.next()) {
+		       				String memb = rs.getString(2);
+		       				s.executeUpdate("INSERT INTO members (member, level) VALUES ('" + memb + "', 0) ON DUPLICATE KEY UPDATE level = level+1");
+		       			}
+		       			
+		       		}
+		       		if(e.getReactionEmote().getName().equals("👎")) {
+		       			ResultSet rs = s.executeQuery("SELECT * FROM messages WHERE message='" + e.getMessageId() + "'");
+		       			
+		       			while(rs.next()) {
+		       				String memb = rs.getString(2);
+		       				s.executeUpdate("INSERT INTO members (member, level) VALUES ('" + memb + "', 0) ON DUPLICATE KEY UPDATE level = level-1");
+		       			}
+		       		}
 		       		
 		        				
 		       	} catch (SQLException ex) {
 		       		ex.printStackTrace();
 		       		return;
 		       	}
-			}		
+			//}		
 		}
 	}
 }

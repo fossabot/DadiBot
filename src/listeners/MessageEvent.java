@@ -11,6 +11,7 @@ import java.util.Properties;
 
 import commands.Help;
 import commands.Info;
+import commands.Jokes;
 import commands.ModuleFun;
 import commands.ModuleHelp;
 import commands.ModuleOptions;
@@ -34,6 +35,7 @@ public class MessageEvent extends ListenerAdapter{
 	ModuleHelp mhelp = new ModuleHelp();
 	ModuleFun mfun = new ModuleFun();
 	Serverinfo sinfo = new Serverinfo();
+	Jokes jokes = new Jokes();
 			
 	
 	@Override
@@ -52,6 +54,7 @@ public class MessageEvent extends ListenerAdapter{
        	EmbedBuilder emb_mhelp = mhelp.modulehelp(server);
        	EmbedBuilder emb_mfun = mfun.modulefun(server);
        	EmbedBuilder emb_sinfo = sinfo.sinfo(server);
+       	EmbedBuilder emb_jokes = jokes.jokes(server, event.getMember());
        	
        	final String hostname = "192.168.178.25"; 
     	final String port = "3306"; 
@@ -166,6 +169,9 @@ public class MessageEvent extends ListenerAdapter{
         }
         if(command.equalsIgnoreCase("sinfo")) {
         	event.getTextChannel().sendMessage(emb_sinfo.build()).queue();
+        }
+        if(command.equalsIgnoreCase("jokes")) {
+        	event.getTextChannel().sendMessage(emb_jokes.build()).queue();
         }
 
     }
