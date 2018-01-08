@@ -1,8 +1,13 @@
 package listeners;
 
-import java.io.FileOutputStream;
+import java.sql.Statement;
 import java.io.OutputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Properties;
+
 
 import commands.Help;
 import commands.Info;
@@ -10,6 +15,7 @@ import commands.ModuleFun;
 import commands.ModuleHelp;
 import commands.ModuleOptions;
 import commands.Modules;
+import commands.Serverinfo;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
@@ -18,8 +24,7 @@ import util.Statics;
 
 public class MessageEvent extends ListenerAdapter{
 	
-	Properties prop = new Properties();
-	OutputStream output = null;
+	
 	
 	Statics statics = new Statics();
 	Help help = new Help();
@@ -28,14 +33,17 @@ public class MessageEvent extends ListenerAdapter{
 	ModuleOptions moptions = new ModuleOptions();
 	ModuleHelp mhelp = new ModuleHelp();
 	ModuleFun mfun = new ModuleFun();
-	
+	Serverinfo sinfo = new Serverinfo();
+			
 	
 	@Override
     public void onMessageReceived(MessageReceivedEvent event) {
-        String message = event.getMessage().getContentDisplay();
+        Properties prop = new Properties();
+        OutputStream output = null;String message = event.getMessage().getContentDisplay();
         String command = event.getMessage().getContentDisplay().replaceFirst("-", "");
         Guild server = event.getGuild();
         String error = statics.error(server);
+        
         
         EmbedBuilder emb_help = help.help(server);
         EmbedBuilder emb_info = info.info(server);
@@ -43,7 +51,13 @@ public class MessageEvent extends ListenerAdapter{
        	EmbedBuilder emb_moptions = moptions.moduleoptions(server);
        	EmbedBuilder emb_mhelp = mhelp.modulehelp(server);
        	EmbedBuilder emb_mfun = mfun.modulefun(server);
-       
+       	EmbedBuilder emb_sinfo = sinfo.sinfo(server);
+       	
+       	final String hostname = "192.168.178.25"; 
+    	final String port = "3306"; 
+    	final String dbname = "206478634389602306"; 
+    	final String user = "root"; 
+    	final String password = Statics.pwd; 
        	
         //dadi
         if(message.equalsIgnoreCase("!dadi")) {
@@ -73,12 +87,37 @@ public class MessageEvent extends ListenerAdapter{
         	try {
 				event.getMessage().addReaction("👍").queue();
 				event.getMessage().addReaction("👎").queue();
-				
-				output = new FileOutputStream("config.properties");
 
 			} catch (Exception e) {
-				//e.printStackTrace();
+				e.printStackTrace();
 			}
+        	System.out.println("-------- MySQL JDBC Connection Testing ------------");
+
+        	try {
+        		Class.forName("com.mysql.jdbc.Driver");
+        	} catch (ClassNotFoundException e) {
+        		System.out.println("Where is your MySQL JDBC Driver?");
+        		e.printStackTrace();
+        		return;
+        	}
+        	System.out.println("MySQL JDBC Driver Registered!");
+        	Connection connection = null;
+        	Statement s = null;
+        	try {
+        		connection = DriverManager
+        		.getConnection("jdbc:mysql://localhost:3306/" + event.getGuild().getId(),"root", Statics.pwd);
+        		
+        		s = connection.createStatement();
+        		s.executeUpdate("INSERT INTO messages VALUES ('" + event.getMessageId() + "', '" + event.getAuthor().getId() + "')");
+        		
+        				
+        	} catch (SQLException e) {
+        		System.out.println("Connection Failed! Check output console");
+        		e.printStackTrace();
+        		return;
+        	}
+
+        	System.out.println("You made it, take control your database now!");
         }
         
         //modules
@@ -125,7 +164,10 @@ public class MessageEvent extends ListenerAdapter{
         		}
         	}
         }
-    	
+        if(command.equalsIgnoreCase("sinfo")) {
+        	event.getTextChannel().sendMessage(emb_sinfo.build()).queue();
+        }
+
     }
 
 }
