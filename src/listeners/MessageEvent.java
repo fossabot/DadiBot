@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Properties;
 
+import com.mysql.fabric.xmlrpc.base.Member;
 
 import commands.Help;
 import commands.Info;
@@ -54,7 +55,6 @@ public class MessageEvent extends ListenerAdapter{
        	EmbedBuilder emb_mhelp = mhelp.modulehelp(server);
        	EmbedBuilder emb_mfun = mfun.modulefun(server);
        	EmbedBuilder emb_sinfo = sinfo.sinfo(server);
-       	EmbedBuilder emb_jokes = jokes.jokes(server, event.getMember());
        	
        	final String hostname = "192.168.178.25"; 
     	final String port = "3306"; 
@@ -100,7 +100,7 @@ public class MessageEvent extends ListenerAdapter{
         		Class.forName("com.mysql.jdbc.Driver");
         	} catch (ClassNotFoundException e) {
         		System.out.println("Where is your MySQL JDBC Driver?");
-        		e.printStackTrace();
+        		//e.printStackTrace();
         		return;
         	}
         	System.out.println("MySQL JDBC Driver Registered!");
@@ -116,11 +116,9 @@ public class MessageEvent extends ListenerAdapter{
         				
         	} catch (SQLException e) {
         		System.out.println("Connection Failed! Check output console");
-        		e.printStackTrace();
+        		//e.printStackTrace();
         		return;
         	}
-
-        	System.out.println("You made it, take control your database now!");
         }
         
         //modules
@@ -170,8 +168,20 @@ public class MessageEvent extends ListenerAdapter{
         if(command.equalsIgnoreCase("sinfo")) {
         	event.getTextChannel().sendMessage(emb_sinfo.build()).queue();
         }
-        if(command.equalsIgnoreCase("jokes")) {
-        	event.getTextChannel().sendMessage(emb_jokes.build()).queue();
+        if(command.startsWith("jokes")) {
+        	if(command.replace("jokes", "").equals("")) {
+        		EmbedBuilder emb_jokes = jokes.jokes(server, event.getMember());
+        		event.getTextChannel().sendMessage(emb_jokes.build()).queue();
+        	}
+        	else {
+        		try {
+        			net.dv8tion.jda.core.entities.Member mentm = event.getMessage().getMentionedMembers().get(0);
+        			EmbedBuilder emb_jokes = jokes.jokes(server, mentm);
+        			event.getTextChannel().sendMessage(emb_jokes.build()).queue();
+        		}catch (Exception e){
+        			event.getTextChannel().sendMessage(error).queue();
+        		}
+        	}
         }
 
     }

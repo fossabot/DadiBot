@@ -19,6 +19,8 @@ public class ModuleFun {
 		
 		eb.addField("▪ !dadi", "Dadi ist sehr cool :^)", false);
 		eb.addBlankField(false);
+		eb.addField("▪ " + prefix + "jokes [member]", "Shows the Jokes-Level of a user.", false);
+		eb.addBlankField(false);
 		eb.setFooter("You can see all the modules with " + prefix + "modules", null);
 		
 		return eb;

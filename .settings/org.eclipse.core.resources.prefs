@@ -7,3 +7,4 @@ encoding//src/commands/Modules.java=UTF-8
 encoding//src/commands/Serverinfo.java=UTF-8
 encoding//src/listeners/MessageEvent.java=UTF-8
 encoding//src/listeners/ReactionEvent.java=UTF-8
+encoding//src/listeners/ReactionEventRemove.java=UTF-8
