@@ -43,7 +43,7 @@ public class Jokes {
        		
 
        	} catch (SQLException ex) {
-       		//ex.printStackTrace();
+       		ex.printStackTrace();
        	}
 		return eb;
 	}
