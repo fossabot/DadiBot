@@ -14,3 +14,8 @@
  - **New Commands:**
    - `-jokes [member]` shows the Jokes-Level of a user.
    
+## 1.0.4 (9/1/2018)
+
+ - **New Commands:**
+   - `-explosion` is a coutdown to a Self-destruction.
+   
