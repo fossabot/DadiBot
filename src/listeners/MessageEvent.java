@@ -10,24 +10,16 @@ import java.util.Properties;
 
 import com.mysql.fabric.xmlrpc.base.Member;
 
-import commands.Help;
-import commands.Info;
-import commands.Jokes;
-import commands.ModuleFun;
-import commands.ModuleHelp;
-import commands.ModuleOptions;
-import commands.Modules;
-import commands.Serverinfo;
+import commands.*;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import util.Prefix;
 import util.Statics;
 
 public class MessageEvent extends ListenerAdapter{
-	
-	
-	
+
 	Statics statics = new Statics();
 	Help help = new Help();
 	Info info = new Info();
@@ -37,13 +29,15 @@ public class MessageEvent extends ListenerAdapter{
 	ModuleFun mfun = new ModuleFun();
 	Serverinfo sinfo = new Serverinfo();
 	Jokes jokes = new Jokes();
+	Prefix pre = new Prefix();
+	Explosion exp = new Explosion();
 			
 	
 	@Override
     public void onMessageReceived(MessageReceivedEvent event) {
         Properties prop = new Properties();
         OutputStream output = null;String message = event.getMessage().getContentDisplay();
-        String command = event.getMessage().getContentDisplay().replaceFirst("-", "");
+        String command = event.getMessage().getContentDisplay().replaceFirst(pre.prefix(event.getGuild()), "");
         Guild server = event.getGuild();
         String error = statics.error(server);
         
@@ -165,9 +159,13 @@ public class MessageEvent extends ListenerAdapter{
         		}
         	}
         }
+
+        //sinfo
         if(command.equalsIgnoreCase("sinfo")) {
         	event.getTextChannel().sendMessage(emb_sinfo.build()).queue();
         }
+
+        //jokes
         if(command.startsWith("jokes")) {
         	if(command.replace("jokes", "").equals("")) {
         		EmbedBuilder emb_jokes = jokes.jokes(server, event.getMember());
@@ -182,6 +180,12 @@ public class MessageEvent extends ListenerAdapter{
         			event.getTextChannel().sendMessage(error).queue();
         		}
         	}
+        }
+
+        //explosion
+        if(command.startsWith("explosion")){
+            exp.explosion(event.getTextChannel());
+            event.getMessage().delete();
         }
 
     }
