@@ -2,11 +2,7 @@ package core;
 
 import javax.security.auth.login.LoginException;
 
-import listeners.JoinEvent;
-import listeners.LeaveEvent;
-import listeners.MessageEvent;
-import listeners.ReactionEvent;
-import listeners.ReactionEventRemove;
+import listeners.*;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
@@ -35,6 +31,7 @@ public class Main {
         builder.addEventListener(new LeaveEvent());
         builder.addEventListener(new ReactionEvent());
         builder.addEventListener(new ReactionEventRemove());
+        builder.addEventListener(new ReadyEvent());
 
         try {
 			JDA jda = builder.buildBlocking();

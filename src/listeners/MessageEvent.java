@@ -20,17 +20,19 @@ import util.Statics;
 
 public class MessageEvent extends ListenerAdapter{
 
-	Statics statics = new Statics();
-	Help help = new Help();
-	Info info = new Info();
-	Modules modules = new Modules();
-	ModuleOptions moptions = new ModuleOptions();
-	ModuleHelp mhelp = new ModuleHelp();
-	ModuleFun mfun = new ModuleFun();
-	Serverinfo sinfo = new Serverinfo();
-	Jokes jokes = new Jokes();
-	Prefix pre = new Prefix();
-	Explosion exp = new Explosion();
+	private Statics statics = new Statics();
+	private Help help = new Help();
+	private Info info = new Info();
+	private Modules modules = new Modules();
+	private ModuleOptions moptions = new ModuleOptions();
+	private ModuleHelp mhelp = new ModuleHelp();
+	private ModuleFun mfun = new ModuleFun();
+	private Serverinfo sinfo = new Serverinfo();
+	private Jokes jokes = new Jokes();
+	private Prefix pre = new Prefix();
+	private Explosion exp = new Explosion();
+	private QuickMaths qm = new QuickMaths();
+	private Mocking mck = new Mocking();
 			
 	
 	@Override
@@ -50,12 +52,6 @@ public class MessageEvent extends ListenerAdapter{
        	EmbedBuilder emb_mfun = mfun.modulefun(server);
        	EmbedBuilder emb_sinfo = sinfo.sinfo(server);
        	
-       	final String hostname = "192.168.178.25"; 
-    	final String port = "3306"; 
-    	final String dbname = "206478634389602306"; 
-    	final String user = "root"; 
-    	final String password = Statics.pwd; 
-       	
         //dadi
         if(message.equalsIgnoreCase("!dadi")) {
         	event.getTextChannel().sendMessage("Dadi ist **sehr** cool ;^)").queue();
@@ -63,20 +59,12 @@ public class MessageEvent extends ListenerAdapter{
         
         //info
         if(command.equalsIgnoreCase("info")) {
-        	try {
-        		event.getTextChannel().sendMessage(emb_info.build()).queue();
-			} catch (Exception e) {
-				//e.printStackTrace();
-			}
+            event.getTextChannel().sendMessage(emb_info.build()).queue();
         }
         
         //help
         if(command.equalsIgnoreCase("help")) {
-        	try {
-				event.getTextChannel().sendMessage(emb_help.build()).queue();
-			} catch (Exception e) {
-				//e.printStackTrace();
-			}
+            event.getTextChannel().sendMessage(emb_help.build()).queue();
         }
         
         //witze
@@ -86,42 +74,32 @@ public class MessageEvent extends ListenerAdapter{
 				event.getMessage().addReaction("👎").queue();
 
 			} catch (Exception e) {
-				e.printStackTrace();
 			}
-        	System.out.println("-------- MySQL JDBC Connection Testing ------------");
-
         	try {
         		Class.forName("com.mysql.jdbc.Driver");
         	} catch (ClassNotFoundException e) {
-        		System.out.println("Where is your MySQL JDBC Driver?");
-        		//e.printStackTrace();
+        		System.out.println(Prefix.error + "There was an ClassNotFoundException while the initialization of the JDBC Driver!");
         		return;
         	}
         	System.out.println("MySQL JDBC Driver Registered!");
         	Connection connection = null;
         	Statement s = null;
         	try {
-        		connection = DriverManager
-        		.getConnection("jdbc:mysql://localhost:3306/" + event.getGuild().getId(),"root", Statics.pwd);
+        		connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + event.getGuild().getId(),"root", Statics.pwd);
         		
         		s = connection.createStatement();
         		s.executeUpdate("INSERT INTO messages VALUES ('" + event.getMessageId() + "', '" + event.getAuthor().getId() + "')");
-        		
+        		System.out.println(Prefix.info + "Registered a new Joke by " + event.getAuthor().getName());
         				
         	} catch (SQLException e) {
-        		System.out.println("Connection Failed! Check output console");
-        		//e.printStackTrace();
+        		System.out.println(Prefix.error + "There was an SQLException while inserting a new Jokes-Message!");
         		return;
         	}
         }
         
         //modules
         if(command.equalsIgnoreCase("modules")) {
-        	try {
-        		event.getTextChannel().sendMessage(emb_modules.build()).queue();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+            event.getTextChannel().sendMessage(emb_modules.build()).queue();
         }
         
         //commands
@@ -134,25 +112,13 @@ public class MessageEvent extends ListenerAdapter{
         		String arg = command.replaceFirst("commands ", "").toLowerCase();
         	
         		if(arg.startsWith("bot-options")) {
-        			try {
-        				event.getTextChannel().sendMessage(emb_moptions.build()).queue();
-        			} catch (Exception e) {
-        				e.printStackTrace();
-        			}
+        		    event.getTextChannel().sendMessage(emb_moptions.build()).queue();
         		}
         		else if(arg.startsWith("help")) {
-        			try {
-        				event.getTextChannel().sendMessage(emb_mhelp.build()).queue();
-        			} catch (Exception e) {
-        				e.printStackTrace();
-        			}
+        		    event.getTextChannel().sendMessage(emb_mhelp.build()).queue();
         		}
         		else if(arg.startsWith("fun")) {
-        			try {
-        				event.getTextChannel().sendMessage(emb_mfun.build()).queue();
-        			} catch (Exception e) {
-        				e.printStackTrace();
-        			}
+        		    event.getTextChannel().sendMessage(emb_mfun.build()).queue();
         		}
         		else {
         			event.getTextChannel().sendMessage(error).queue();
@@ -186,6 +152,18 @@ public class MessageEvent extends ListenerAdapter{
         if(command.startsWith("explosion")){
             exp.explosion(event.getTextChannel());
             event.getMessage().delete();
+        }
+
+        //quickmaths
+        if(command.startsWith("quickmaths")){
+            qm.quickmaths(event.getTextChannel());
+        }
+
+        //mocking
+        if(command.startsWith("mocking")){
+            event.getTextChannel().deleteMessageById(event.getTextChannel().getLatestMessageId()).queue();
+            String arg = event.getMessage().getContentDisplay().replaceFirst("-mocking", "");
+            mck.mocking(event.getTextChannel(), arg.toLowerCase(), arg.length()/2);
         }
 
     }

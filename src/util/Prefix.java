@@ -37,5 +37,9 @@ public class Prefix {
 		
 		return "-";
 	}
+
+	public static final String success = Colors.RESET + "[" + Colors.GREEN + "Success" + Colors.RESET + "] " + Colors.RESET;
+	public static final String info = Colors.RESET + "[" + Colors.BLUE + "Info" + Colors.RESET + "] " + Colors.RESET;
+	public static final String error = Colors.RESET + "[" + Colors.RED + "Error" + Colors.RESET + "] " + Colors.RESET;
 	
 }

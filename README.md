@@ -19,3 +19,8 @@
  - **New Commands:**
    - `-explosion` is a coutdown to a Self-destruction.
    
+## 1.0.5 (14/1/2018)
+ 
+ - **New Commands:**   
+   - `-quickmaths` shows you some quick maths.
+   - `-mocking <text>` turns the text into a mocking-(spongebob) text.

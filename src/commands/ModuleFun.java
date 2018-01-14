@@ -23,6 +23,10 @@ public class ModuleFun {
 		eb.addBlankField(false);
 		eb.addField("▪ " + prefix + "explosion", "Coutdown to Self-destruction.", false);
 		eb.addBlankField(false);
+		eb.addField("▪ " + prefix + "quickmaths", "Shows you some quick maths.", false);
+		eb.addBlankField(false);
+		eb.addField("▪ " + prefix + "mocking <text>", "Turns the text into a mocking-(spongebob) text.", false);
+		eb.addBlankField(false);
 		eb.setFooter("You can see all the modules with " + prefix + "modules", null);
 		
 		return eb;

@@ -26,6 +26,7 @@ import net.dv8tion.jda.core.events.message.react.GenericMessageReactionEvent;
 import net.dv8tion.jda.core.events.message.react.MessageReactionAddEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 import net.dv8tion.jda.core.requests.RestAction;
+import util.Prefix;
 import util.Statics;
 
 public class ReactionEvent extends ListenerAdapter{
@@ -38,16 +39,10 @@ public class ReactionEvent extends ListenerAdapter{
 	public void onMessageReactionAdd(MessageReactionAddEvent e) {
 		if(e.getChannel().getName().equalsIgnoreCase("witze")) {
 
-				
-			//if(e.getReactionEmote().getName().equals("👍")) {
-					
-				RestAction<Message> m = e.getChannel().getMessageById(e.getMessageIdLong());
-				
 		       	try {
 		       		Class.forName("com.mysql.jdbc.Driver");
 		       	} catch (ClassNotFoundException ex) {
-		       		ex.printStackTrace();
-		       		return;
+					System.out.println(Prefix.error + "There was an ClassNotFoundException while the initialization of the JDBC Driver!");
 		       	}
 		      	Connection connection = null;
 		       	Statement s = null;
@@ -76,7 +71,7 @@ public class ReactionEvent extends ListenerAdapter{
 		       		
 		        				
 		       	} catch (SQLException ex) {
-		       		ex.printStackTrace();
+					System.out.println(Prefix.error + "There was an SQLException while adding a Reaction!");
 		       		return;
 		       	}
 			//}		
