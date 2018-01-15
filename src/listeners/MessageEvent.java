@@ -33,6 +33,7 @@ public class MessageEvent extends ListenerAdapter{
 	private Explosion exp = new Explosion();
 	private QuickMaths qm = new QuickMaths();
 	private Mocking mck = new Mocking();
+	private Guilds glds = new Guilds();
 			
 	
 	@Override
@@ -72,25 +73,23 @@ public class MessageEvent extends ListenerAdapter{
         	try {
 				event.getMessage().addReaction("👍").queue();
 				event.getMessage().addReaction("👎").queue();
-
 			} catch (Exception e) {
 			}
         	try {
         		Class.forName("com.mysql.jdbc.Driver");
         	} catch (ClassNotFoundException e) {
-        		System.out.println(Prefix.error + "There was an ClassNotFoundException while the initialization of the JDBC Driver!");
         		return;
         	}
-        	System.out.println("MySQL JDBC Driver Registered!");
         	Connection connection = null;
         	Statement s = null;
         	try {
         		connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + event.getGuild().getId(),"root", Statics.pwd);
         		
         		s = connection.createStatement();
-        		s.executeUpdate("INSERT INTO messages VALUES ('" + event.getMessageId() + "', '" + event.getAuthor().getId() + "')");
+        		String query = "INSERT INTO messages VALUES ('" + event.getMessageId() + "', '" + event.getAuthor().getId() + "')";
+        		final PreparedStatement ps = connection.prepareStatement(query);
+                ps.execute();
         		System.out.println(Prefix.info + "Registered a new Joke by " + event.getAuthor().getName());
-        				
         	} catch (SQLException e) {
         		System.out.println(Prefix.error + "There was an SQLException while inserting a new Jokes-Message!");
         		return;
@@ -164,6 +163,11 @@ public class MessageEvent extends ListenerAdapter{
             event.getTextChannel().deleteMessageById(event.getTextChannel().getLatestMessageId()).queue();
             String arg = event.getMessage().getContentDisplay().replaceFirst("-mocking", "");
             mck.mocking(event.getTextChannel(), arg.toLowerCase(), arg.length()/2);
+        }
+
+        //guilds
+        if(command.startsWith("guilds")){
+            glds.guilds(event.getTextChannel(), event);
         }
 
     }

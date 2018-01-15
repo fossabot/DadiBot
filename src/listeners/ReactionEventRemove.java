@@ -5,11 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Properties;
 
 import net.dv8tion.jda.client.events.message.group.react.GroupMessageReactionAddEvent;
@@ -38,44 +34,45 @@ public class ReactionEventRemove extends ListenerAdapter{
 	
 	@Override
 	public void onMessageReactionRemove(MessageReactionRemoveEvent e) {
-		if(e.getChannel().getName().equalsIgnoreCase("witze")) {
+		if (e.getChannel().getName().equalsIgnoreCase("witze")) {
 
-		       	try {
-		       		Class.forName("com.mysql.jdbc.Driver");
-		       	} catch (ClassNotFoundException ex) {
-					System.out.println(Prefix.error + "There was an ClassNotFoundException while the initialization of the JDBC Driver!");
-		       	}
-		      	Connection connection = null;
-		       	Statement s = null;
-		       	try {
-		       		connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + e.getGuild().getId(),"root", Statics.pwd);
-		       		
-		       		s = connection.createStatement();
-		       		
-		       		if(e.getReactionEmote().getName().equals("👍")) {
-		       			ResultSet rs = s.executeQuery("SELECT * FROM messages WHERE message='" + e.getMessageId() + "'");
-		       			
-		       			while(rs.next()) {
-		       				String memb = rs.getString(2);
-		       				s.executeUpdate("INSERT INTO members (member, level) VALUES ('" + memb + "', 0) ON DUPLICATE KEY UPDATE level = level-1");
-		       			}
-		       			
-		       		}
-		       		if(e.getReactionEmote().getName().equals("👎")) {
-		       			ResultSet rs = s.executeQuery("SELECT * FROM messages WHERE message='" + e.getMessageId() + "'");
-		       			
-		       			while(rs.next()) {
-		       				String memb = rs.getString(2);
-		       				s.executeUpdate("INSERT INTO members (member, level) VALUES ('" + memb + "', 0) ON DUPLICATE KEY UPDATE level = level+1");
-		       			}
-		       		}
-		       		
-		        				
-		       	} catch (SQLException ex) {
-					System.out.println(Prefix.error + "There was an SQLException while removing a Reaction!");
-		       		return;
-		       	}
-			//}		
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+			} catch (ClassNotFoundException ex) {
+				System.out.println(Prefix.error + "There was an ClassNotFoundException while the initialization of the JDBC Driver!");
+			}
+			Connection connection = null;
+			Statement s = null;
+			try {
+				connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + e.getGuild().getId(), "root", Statics.pwd);
+
+				s = connection.createStatement();
+				String query1 = "SELECT * FROM messages WHERE message='" + e.getMessageId() + "'";
+				final PreparedStatement ps = connection.prepareStatement(query1);
+
+				if (e.getReactionEmote().getName().equals("👍")) {
+					final ResultSet rs = ps.executeQuery();
+
+					while (rs.next()) {
+						String memb = rs.getString(2);
+						s.executeUpdate("INSERT INTO members (member, level) VALUES ('" + memb + "', 0) ON DUPLICATE KEY UPDATE level = level-1");
+					}
+
+				}
+				if (e.getReactionEmote().getName().equals("👎")) {
+					final ResultSet rs = ps.executeQuery();
+
+					while (rs.next()) {
+						String memb = rs.getString(2);
+						s.executeUpdate("INSERT INTO members (member, level) VALUES ('" + memb + "', 0) ON DUPLICATE KEY UPDATE level = level+1");
+					}
+				}
+
+			} catch (SQLException ex) {
+				System.out.println(Prefix.error + "There was an SQLException while adding a Reaction!");
+				return;
+			}
+
 		}
 	}
 }

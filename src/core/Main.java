@@ -12,6 +12,10 @@ import net.dv8tion.jda.core.entities.Game.GameType;
 import net.dv8tion.jda.core.exceptions.RateLimitedException;
 import util.Statics;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Main {
 	
 	public static JDABuilder builder;
@@ -32,6 +36,10 @@ public class Main {
         builder.addEventListener(new ReactionEvent());
         builder.addEventListener(new ReactionEventRemove());
         builder.addEventListener(new ReadyEvent());
+        builder.addEventListener(new DisconnectEvent());
+        builder.addEventListener(new ResumedEvent());
+        builder.addEventListener(new ReconnectedEvent());
+
 
         try {
 			JDA jda = builder.buildBlocking();
@@ -42,8 +50,10 @@ public class Main {
         } catch (RateLimitedException e) {
             e.printStackTrace();
         }
-        
 
-	}
+
+
+
+    }
 
 }

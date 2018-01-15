@@ -5,11 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Properties;
 
 import net.dv8tion.jda.client.events.message.group.react.GroupMessageReactionAddEvent;
@@ -50,9 +46,11 @@ public class ReactionEvent extends ListenerAdapter{
 		       		connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + e.getGuild().getId(),"root", Statics.pwd);
 		       		
 		       		s = connection.createStatement();
-		       		
+		       		String query1 = "SELECT * FROM messages WHERE message='" + e.getMessageId() + "'";
+		       		final PreparedStatement ps = connection.prepareStatement(query1);
+
 		       		if(e.getReactionEmote().getName().equals("👍")) {
-		       			ResultSet rs = s.executeQuery("SELECT * FROM messages WHERE message='" + e.getMessageId() + "'");
+		       			final ResultSet rs = ps.executeQuery();
 		       			
 		       			while(rs.next()) {
 		       				String memb = rs.getString(2);
@@ -61,20 +59,19 @@ public class ReactionEvent extends ListenerAdapter{
 		       			
 		       		}
 		       		if(e.getReactionEmote().getName().equals("👎")) {
-		       			ResultSet rs = s.executeQuery("SELECT * FROM messages WHERE message='" + e.getMessageId() + "'");
+                        final ResultSet rs = ps.executeQuery();
 		       			
 		       			while(rs.next()) {
 		       				String memb = rs.getString(2);
 		       				s.executeUpdate("INSERT INTO members (member, level) VALUES ('" + memb + "', 0) ON DUPLICATE KEY UPDATE level = level-1");
 		       			}
 		       		}
-		       		
 		        				
 		       	} catch (SQLException ex) {
 					System.out.println(Prefix.error + "There was an SQLException while adding a Reaction!");
 		       		return;
 		       	}
-			//}		
+
 		}
 	}
 }

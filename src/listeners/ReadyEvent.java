@@ -18,5 +18,6 @@ public class ReadyEvent extends ListenerAdapter{
         System.out.println(ascii);
         System.out.println(Prefix.success + "DadiBot started successfully!");
         System.out.println(Prefix.info + "The Bot is on " + e.getJDA().getGuilds().size() + " Guilds online.");
+
     }
 }
