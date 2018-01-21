@@ -27,6 +27,8 @@ public class ModuleFun {
 		eb.addBlankField(false);
 		eb.addField("▪ " + prefix + "mocking <text>", "Turns the text into a mocking-(spongebob) text.", false);
 		eb.addBlankField(false);
+		eb.addField("▪ " + prefix + "meme <top text>, <bottom text>, <image url>", "Creates a meme with a custom image and a text on the bottom an on the top.", false);
+		eb.addBlankField(false);
 		eb.setFooter("You can see all the modules with " + prefix + "modules", null);
 		
 		return eb;

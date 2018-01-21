@@ -20,7 +20,7 @@ public class Prefix {
      	String prefix = "-";
       	Connection connection = null;
        	
-       	try {
+      /* 	try {
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + "settings","root", Statics.pwd);
 			
        		String query = "SELECT state FROM prefix WHERE guild='" + server.getId() + "'";
@@ -32,7 +32,7 @@ public class Prefix {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
+		}*/
 		
 		
 		return "-";

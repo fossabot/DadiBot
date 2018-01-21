@@ -25,6 +25,10 @@ public class ModuleHelp {
 		eb.addBlankField(false);
 		eb.addField("▪ " + prefix + "commands <module>", "Shows you all the commands of a module.", false);
 		eb.addBlankField(false);
+        eb.addField("▪ " + prefix + "donate", "Shows you informations about how you can donate.", false);
+        eb.addBlankField(false);
+		eb.addField("▪ " + prefix + "guilds", "Shows you all the Guilds with the Bot.", false);
+		eb.addBlankField(false);
 		eb.setFooter("You can see all the modules with " + prefix + "modules", null);
 		
 		return eb;

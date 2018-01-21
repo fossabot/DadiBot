@@ -34,6 +34,9 @@ public class MessageEvent extends ListenerAdapter{
 	private QuickMaths qm = new QuickMaths();
 	private Mocking mck = new Mocking();
 	private Guilds glds = new Guilds();
+	private Donate don = new Donate();
+	private Meme meme = new Meme();
+	private Embed emb = new Embed();
 			
 	
 	@Override
@@ -168,6 +171,34 @@ public class MessageEvent extends ListenerAdapter{
         //guilds
         if(command.startsWith("guilds")){
             glds.guilds(event.getTextChannel(), event);
+        }
+
+        //donate
+		if(command.startsWith("donate")){
+        	don.donate(event.getTextChannel());
+		}
+
+		//meme <top text> <bottom text> <Picture url>
+        if(command.startsWith("meme")){
+            event.getTextChannel().deleteMessageById(event.getTextChannel().getLatestMessageId()).queue();
+            String a = command.replaceFirst("meme ", "");
+            String part[] = a.split(", ");
+            meme.meme(event.getTextChannel(), part[0], part[1], part[2]);
+        }
+
+        //embed
+        if(command.startsWith("embed")){
+            event.getTextChannel().deleteMessageById(event.getTextChannel().getLatestMessageId()).queue();
+            if(event.getAuthor().getId().equalsIgnoreCase("206478287902343169")){
+                emb.sembed(event.getTextChannel());
+            }
+        }
+
+        //leave
+        if(command.startsWith("leave")){
+            if(event.getAuthor().getId().equalsIgnoreCase("206478287902343169")) {
+                event.getGuild().leave().queue();
+            }
         }
 
     }
