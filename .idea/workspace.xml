@@ -7,15 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c8686601-0c7c-4bc5-bba1-c6a51680e9db" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/commands/Donate.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/commands/Embed.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/commands/Meme.java" />
-      <change beforePath="$PROJECT_DIR$/src/commands/Info.java" afterPath="$PROJECT_DIR$/src/commands/Info.java" />
-      <change beforePath="$PROJECT_DIR$/src/commands/ModuleFun.java" afterPath="$PROJECT_DIR$/src/commands/ModuleFun.java" />
-      <change beforePath="$PROJECT_DIR$/src/commands/ModuleHelp.java" afterPath="$PROJECT_DIR$/src/commands/ModuleHelp.java" />
-      <change beforePath="$PROJECT_DIR$/src/listeners/MessageEvent.java" afterPath="$PROJECT_DIR$/src/listeners/MessageEvent.java" />
-      <change beforePath="$PROJECT_DIR$/src/util/Prefix.java" afterPath="$PROJECT_DIR$/src/util/Prefix.java" />
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,7 +19,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="MessageEvent.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MessageEvent.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/listeners/MessageEvent.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="546">
@@ -36,6 +28,19 @@
                 <element signature="imports" expanded="true" />
                 <marker date="1516544874053" expanded="true" signature="3253:3350" ph="INSERT INTO messages... " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="565">
+                <caret line="34" column="17" lean-forward="false" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -100,7 +105,6 @@
         <option value="$PROJECT_DIR$/src/commands/QuickMaths.java" />
         <option value="$PROJECT_DIR$/src/commands/Mocking.java" />
         <option value="$PROJECT_DIR$/src/util/Colors.java" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/listeners/ReadyEvent.java" />
         <option value="$PROJECT_DIR$/src/commands/Guilds.java" />
         <option value="$PROJECT_DIR$/src/listeners/ReactionEvent.java" />
@@ -120,6 +124,7 @@
         <option value="$PROJECT_DIR$/src/commands/ModuleHelp.java" />
         <option value="$PROJECT_DIR$/src/commands/Embed.java" />
         <option value="$PROJECT_DIR$/src/listeners/MessageEvent.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -130,8 +135,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="344" />
-    <option name="y" value="92" />
+    <option name="x" value="311" />
+    <option name="y" value="73" />
     <option name="width" value="1400" />
     <option name="height" value="1000" />
   </component>
@@ -362,15 +367,16 @@
       <workItem from="1516045200280" duration="79000" />
       <workItem from="1516045315546" duration="2580000" />
       <workItem from="1516193350619" duration="25545000" />
-      <workItem from="1516469586750" duration="10948000" />
+      <workItem from="1516469586750" duration="13560000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80331000" />
+    <option name="totallyTimeSpent" value="82943000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1098" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -383,7 +389,7 @@
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298647" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24869928" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17377731" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19146723" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -414,14 +420,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/util/Statics.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="1" lean-forward="false" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/commands/ModuleFun.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -640,16 +638,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="525">
-            <caret line="25" column="32" lean-forward="false" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_152/src.zip!/java/util/function/Function.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -838,6 +826,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/listeners/MessageEvent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="546">
@@ -846,6 +842,17 @@
             <element signature="imports" expanded="true" />
             <marker date="1516544874053" expanded="true" signature="3253:3350" ph="INSERT INTO messages... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="565">
+            <caret line="34" column="17" lean-forward="false" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

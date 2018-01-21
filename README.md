@@ -24,3 +24,12 @@
  - **New Commands:**   
    - `-quickmaths` shows you some quick maths.
    - `-mocking <text>` turns the text into a mocking-(spongebob) text.
+   
+## 1.0.6 (21/1/2018)
+
+ - You can now donate to improve the Bot.
+ - **New Commmands:**
+   - `-donate` shows you helpful informations about how you can donate.
+   - `-memes <top text>, <bottom text>, <image url>` makes you a custom meme with a custom text and image.
+   - `-guilds` shows a list with a the names of the servers with the Bot. 
+   - `-embed` is only for the Developer ;^).
