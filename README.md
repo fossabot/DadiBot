@@ -17,5 +17,21 @@ The easiest way for setting up the Permissions is to give him the `Administrator
 ### Prefix
 The default Prefix for the Bot is `-`. At the moment you can't edit it, but this Feature will come soon!
 
-##Commands and Modules
-The Bot is seperated in three Modules (Categories) 
+
+## Commands and Modules
+The Bot is separated in three Modules (Categories) of Commands: `help`, `fun`and `bot-options`.
+
+### Help Module
+ - `-help` shows you helpful informations about the bot.
+ - `-info` shows you other important informations about the bot.
+ - `-modules` shows you all the modules (catergories) of the bot.
+ - `-commands <module>` shows you all the commands of a module.
+ - `-donate` shows you informations about how you can donate.
+ - `-guilds` shows you all the Guilds with the Bot.
+ - `-sinfo` shows you informations about the Server.
+ 
+### Fun Module
+ - `-jokes <member>` shows the Jokes-Level of a member. (only avaible on certain servers).
+ - `-fortnite <user>` shows the [Fortnite Battle Royale](https://www.epicgames.com/fortnite/en-US/buy-now/battle-royale) Stats of a User.
+ - `-explosion` starts a coutdown to a Self-destruction.
+ 
