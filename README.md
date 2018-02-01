@@ -1,3 +1,5 @@
+![banner_small](/img/logo1_banner_small.png
+)
 # Changelog
 ## 1.0.2 (5/1/2018)
 
