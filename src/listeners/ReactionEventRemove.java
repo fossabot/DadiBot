@@ -59,14 +59,6 @@ public class ReactionEventRemove extends ListenerAdapter{
 					}
 
 				}
-				if (e.getReactionEmote().getName().equals("👎")) {
-					final ResultSet rs = ps.executeQuery();
-
-					while (rs.next()) {
-						String memb = rs.getString(2);
-						s.executeUpdate("INSERT INTO members (member, level) VALUES ('" + memb + "', 0) ON DUPLICATE KEY UPDATE level = level+1");
-					}
-				}
 
 			} catch (SQLException ex) {
 				System.out.println(Prefix.error + "There was an SQLException while adding a Reaction!");

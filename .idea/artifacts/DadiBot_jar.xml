@@ -5,7 +5,8 @@
       <element id="module-output" name="DadiBot" />
       <element id="extracted-dir" path="D:/Coding/APIs/JDA-3.4.0_319-withDependencies.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/mysql-connector-java-5.1.45-bin.jar" path-in-jar="/" />
-      <element id="file-copy" path="$PROJECT_DIR$/giphy.mp4" />
+      <element id="library" level="project" name="java-json" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/java-json.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

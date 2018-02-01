@@ -1,5 +1,8 @@
 package listeners;
 
+import java.io.IOException;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Statement;
 import java.io.OutputStream;
 import java.sql.Connection;
@@ -37,6 +40,8 @@ public class MessageEvent extends ListenerAdapter{
 	private Donate don = new Donate();
 	private Meme meme = new Meme();
 	private Embed emb = new Embed();
+	private Github gith = new Github();
+	private Fortnite fort = new Fortnite();
 			
 	
 	@Override
@@ -200,6 +205,35 @@ public class MessageEvent extends ListenerAdapter{
                 event.getGuild().leave().queue();
             }
         }
+
+        //github <url> [language]
+        if(command.startsWith("github")){
+            String a = command.replaceFirst("github ", "");
+            String part[] = a.split(" ");
+            gith.github(event.getTextChannel(), part[0], part[1]);
+        }
+
+        //fortnite <user>
+		if(command.startsWith("fortnite")){
+        	String user = command.replaceFirst("fortnite ", "");
+
+        	if(command.equalsIgnoreCase("fortnite") || command.equalsIgnoreCase("fortnite ")){
+                event.getTextChannel().sendMessage("**Error!** User can't be found!").queue();
+            }
+            else {
+                try {
+                    try {
+                        fort.fortnite(event.getTextChannel(), user, "pc");
+                    } catch (KeyManagementException e) {
+                        event.getTextChannel().sendMessage("**Error!** User can't be found!").queue();
+                    } catch (NoSuchAlgorithmException e) {
+                        event.getTextChannel().sendMessage("**Error!** User can't be found!").queue();
+                    }
+                } catch (IOException e) {
+                    event.getTextChannel().sendMessage("**Error!** User can't be found!").queue();
+                }
+            }
+		}
 
     }
 
