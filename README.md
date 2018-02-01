@@ -31,7 +31,15 @@ The Bot is separated in three Modules (Categories) of Commands: `help`, `fun`and
  - `-sinfo` shows you informations about the Server.
  
 ### Fun Module
- - `-jokes <member>` shows the Jokes-Level of a member. (only avaible on certain servers).
  - `-fortnite <user>` shows the [Fortnite Battle Royale](https://www.epicgames.com/fortnite/en-US/buy-now/battle-royale) Stats of a User.
  - `-explosion` starts a coutdown to a Self-destruction.
- 
+ - `-mocking <text>` turns a text into a mocking (-Spongebob) text.
+ - `-meme <top text>, <bottom text>, <image url>` creates a meme with a custom image and custom text at the bottom and top.
+ - `-quickmaths` shows you some Quickmaths. 
+
+### Bot-Options Module
+ - `-setprefix <prefix>` sets the Prefix Form the Bot Commands. **Isn't working yet!**
+
+### Utility Module
+ - `-github <link> ` Shows you the Code of a Gist or GitHub File.
+ - `-jokes <member>` shows the Jokes-Level of a member. (only avaible on certain servers).
