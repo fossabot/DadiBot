@@ -43,3 +43,40 @@ The Bot is separated in three Modules (Categories) of Commands: `help`, `fun`and
 ### Utility Module
  - `-github <link> ` Shows you the Code of a Gist or GitHub File.
  - `-jokes <member>` shows the Jokes-Level of a member. (only avaible on certain servers).
+ 
+
+## DadiBot Team
+At the Moment the Team contains 3 Members.
+
+### Founders
+ - EweLoHD - *Founder*
+ - Dadi - *Co-Founder*
+
+### Developers
+ - EweLoHD - *Head Developer*
+
+### Moderators
+ - Dadi - *Moderator*
+ - Maxi - *Moderator*
+
+
+## About
+The Bot was the first time online in December 2017. At the beginning it was only for adding automaticly Reactions to Messages, but it gots more and more Features and now it is still getting bigger!
+
+### Used Libaries
+ - [JDA](https://github.com/DV8FromTheWorld/JDA) - *as Api for Discord Bots in Java*
+ - [JBDC Connector](https://dev.mysql.com/downloads/connector/j/) - *to connect and use the DadiBot Database*
+ - [fortnite.y3n.co](fortnite.y3n.co) - *as Api for getting Fortnite Stats*
+
+### Important Links
+
+#### Discord Server 
+Join the official [DadiBot Discord](https://discord.gg/e4TRTEB) Server to get News and Updates about the Bot.
+ 
+#### Forum
+Register in the [DadiBot Forum](https://dadibot.freeflarum.com/) to discuss about the Bot, make Proposals, report Bugs and get Help.
+
+#### Proposals ans Bugs
+You can make Proposals or report Bugs here on GitHub as an Issue or in the Forum or in the Discord Server.
+
+ 
