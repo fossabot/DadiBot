@@ -79,4 +79,7 @@ Register in the [DadiBot Forum](https://dadibot.freeflarum.com/) to discuss abou
 #### Proposals ans Bugs
 You can make Proposals or report Bugs here on GitHub as an Issue or in the Forum or in the Discord Server.
 
+### License 
+The Bot is licensed under the MIT License. For more Informations see [LICENSE](LICENSE).
+
  
