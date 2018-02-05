@@ -19,7 +19,7 @@ The default Prefix for the Bot is `-`. At the moment you can't edit it, but this
 
 
 ## Commands and Modules
-The Bot is separated in three Modules (Categories) of Commands: `help`, `fun`and `bot-options`.
+The Bot is separated in three Modules (Categories) of Commands: `help`, `fun`, `bot-options` and `utility`.
 
 ### Help Module
  - `-help` shows you helpful informations about the bot.
@@ -67,6 +67,7 @@ The Bot was the first time online in December 2017. At the beginning it was only
  - [JDA](https://github.com/DV8FromTheWorld/JDA) - *as Api for Discord Bots in Java*
  - [JBDC Connector](https://dev.mysql.com/downloads/connector/j/) - *to connect and use the DadiBot Database*
  - [fortnite.y3n.co](fortnite.y3n.co) - *as Api for getting Fortnite Stats*
+ - [memegen.link](https://memegen.link/api/) - *for making Custom Memes*
 
 ### Important Links
 
@@ -81,5 +82,6 @@ You can make Proposals or report Bugs here on GitHub as an Issue or in the Forum
 
 ### License 
 The Bot is licensed under the MIT License. For more Informations see [LICENSE](LICENSE).
+
 
  
