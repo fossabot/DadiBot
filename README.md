@@ -2,6 +2,9 @@
 # DadiBot
 The DadiBot is a Discord Bot with a lot of Features like Fortnite Stats or a Meme Generator.
 
+[![forthebadge](http://forthebadge.com/badges/contains-cat-gifs.svg)](http://forthebadge.com) 
+[![forthebadge](http://forthebadge.com/badges/does-not-contain-treenuts.svg)](https://forthebadge.com)
+
 ## Getting Started
 These Instructions will show you how you can add the Bot to your Discord and how you can configure it.
 
@@ -82,6 +85,8 @@ You can make Proposals or report Bugs here on GitHub as an Issue or in the Forum
 
 ### License 
 The Bot is licensed under the MIT License. For more Informations see [LICENSE](LICENSE).
+
+
 
 
  
