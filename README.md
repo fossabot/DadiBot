@@ -75,11 +75,11 @@ The Bot was the first time online in December 2017. At the beginning it was only
 #### Discord Server 
 Join the official [DadiBot Discord](https://discord.gg/e4TRTEB) Server to get News and Updates about the Bot.
  
-#### Forum
-Register in the [DadiBot Forum](https://dadibot.freeflarum.com/) to discuss about the Bot, make Proposals, report Bugs and get Help.
+#### Website
+We have a [Website](https://ewelohd.github.io/DadiBot/) made with Github Pages!
 
 #### Proposals ans Bugs
-You can make Proposals or report Bugs here on GitHub as an Issue or in the Forum or in the Discord Server.
+You can make Proposals or report Bugs here on GitHub as an Issue or on the Discord Server.
 
 ### License 
 The Bot is licensed under the MIT License. For more Informations see [LICENSE](LICENSE).
