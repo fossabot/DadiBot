@@ -78,7 +78,7 @@ Join the official [DadiBot Discord](https://discord.gg/e4TRTEB) Server to get Ne
 #### Website
 We have a [Website](https://ewelohd.github.io/DadiBot/) made with Github Pages!
 
-#### Proposals ans Bugs
+#### Proposals and Bugs
 You can make Proposals or report Bugs here on GitHub as an Issue or on the Discord Server.
 
 ### License 
