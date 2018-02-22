@@ -1,7 +1,8 @@
 # DadiBot
 The DadiBot is a Discord Bot with a lot of Features like Fortnite Stats or a Meme Generator.
 
-[![forthebadge](http://forthebadge.com/badges/contains-cat-gifs.svg)](http://forthebadge.com) 
+[![forthebadge](http://forthebadge.com/badges/contains-cat-gifs.svg)](http://forthebadge.com) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FEweLoHD%2FDadiBot.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FEweLoHD%2FDadiBot?ref=badge_shield)
+
 [![forthebadge](http://forthebadge.com/badges/does-not-contain-treenuts.svg)](https://forthebadge.com)
 
 ## Getting Started
@@ -88,3 +89,6 @@ The Bot is licensed under the MIT License. For more Informations see [LICENSE](L
 
 
  
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FEweLoHD%2FDadiBot.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FEweLoHD%2FDadiBot?ref=badge_large)
